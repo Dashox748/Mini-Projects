@@ -12,7 +12,7 @@ function Top() {
           Build your brand's recognition and get detailed insights on how your
           links are performing
         </p>
-        <button className="mt-9 bg-[#2acfcf] px-12 py-4 rounded-full font-bold tracking-wide transition-all text-lg text-white hover:opacity-60">
+        <button className="mt-9 bg-[#2acfcf] px-12 py-4 rounded-full font-bold tracking-wide  text-lg text-white transition-all hover:opacity-60">
           Get Started
         </button>
       </div>

@@ -2,21 +2,52 @@ import "./App.css";
 import Header from "./containers/Header/Header";
 import Content from "./containers/content/Content";
 import Footer from "./containers/Footer/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [shortenLink, setShortenLink] = useState("");
+  // const [listLink, setListLink] = useState([]);
+  const [shortenLink, setShortenLink] = useState([]);
   const [link, setLink] = useState("");
 
-  const shortenLinkFunc = (link) => {
-    if (link.length > 70) {
-      setLink(link.substring(0, 70) + "...");
-    } else {
-      setLink(link);
+  useEffect(() => {
+    const savedLinks = JSON.parse(localStorage.getItem("linksList"));
+    if (savedLinks) {
+      setShortenLink(savedLinks);
     }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("linksList", JSON.stringify(shortenLink));
+  }, [shortenLink]);
+
+  const shortenLinkFunc = (link) => {
     fetch(`https://api.shrtco.de/v2/shorten?url=${link}`)
       .then((data) => data.json())
-      .then((data) => setShortenLink(data.result.short_link));
+      .then((data) => {
+        if (link.length > 70) {
+          const newData = {
+            originalLink: link.substring(0, 70) + "...",
+            shortLink: data.result.short_link,
+          };
+          if (shortenLink.length >= 3) {
+            shortenLink.pop();
+            setShortenLink([newData, ...shortenLink]);
+          } else {
+            setShortenLink([newData, ...shortenLink]);
+          }
+        } else {
+          const newData = {
+            originalLink: link,
+            shortLink: data.result.short_link,
+          };
+          if (shortenLink.length >= 3) {
+            shortenLink.pop();
+            setShortenLink([newData, ...shortenLink]);
+          } else {
+            setShortenLink([newData, ...shortenLink]);
+          }
+        }
+      });
   };
 
   return (

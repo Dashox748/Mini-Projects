@@ -12,7 +12,7 @@ function Footer() {
         <h1 className="text-white font-bold text-4xl">
           Boost your links today
         </h1>
-        <button className="tracking-wide text-white font-bold text-lg bg-cyan-500 hover:bg-cyan-600 active:opacity-80 rounded-full py-4 px-12 mt-5 ">
+        <button className="tracking-wide text-white font-bold text-lg bg-cyan-500 hover:bg-cyan-600 active:opacity-80 rounded-full py-4 px-12 mt-5 transition-all hover:opacity-95 ">
           Get Started
         </button>
       </div>
