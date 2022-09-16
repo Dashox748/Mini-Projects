@@ -9,6 +9,7 @@ function App() {
   const [region, setRegion] = useState("");
   const [countryInfo, setCountryInfo] = useState([]);
   const [showCountryInfo, setShowCountryInfo] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const inputHandle = (e) => {
     setSearch(e.target.value);
@@ -47,9 +48,17 @@ function App() {
   const buttonHandle = () => {
     setShowCountryInfo(!showCountryInfo);
   };
+
+  const darkModeHandle = () => {
+    setDarkMode(!darkMode);
+  };
   return (
-    <div className="App__container">
-      <Header />
+    <div
+      className={
+        darkMode ? "app__container light_app" : "app__container dark_app"
+      }
+    >
+      <Header darkModeHandle={darkModeHandle} darkMode={darkMode} />
       <Content
         inputHandle={inputHandle}
         listSelectHandle={listSelectHandle}
@@ -63,6 +72,7 @@ function App() {
         showCountryInfo={showCountryInfo}
         buttonHandle={buttonHandle}
         search={search}
+        darkMode={darkMode}
       />
     </div>
   );

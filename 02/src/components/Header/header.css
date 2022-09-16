@@ -4,10 +4,21 @@
   align-items: center;
   padding: 0 80px;
   height: 80px;
-  background: white;
+
   box-shadow: 0 0 15px rgb(0, 0, 0, 0.3);
 }
 .header__container h1 {
   font-weight: 800;
   font-size: 25px;
+}
+.header__container div h1 {
+  cursor: pointer;
+}
+
+.dark {
+  background: hsl(209, 23%, 22%);
+  color: white;
+}
+.light {
+  background: white;
 }

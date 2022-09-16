@@ -11,6 +11,7 @@ function Content({
   showCountryInfo,
   buttonHandle,
   search,
+  darkMode,
 }) {
   const [active, setActive] = useState(false);
 
@@ -19,11 +20,20 @@ function Content({
       <div className="content__container-filters">
         <input
           onChange={(e) => inputHandle(e)}
-          className="search_bar"
+          className={
+            darkMode ? "search_bar search_light" : "search_bar search-dark"
+          }
           placeholder="Search for a country..."
           value={search}
         ></input>
-        <div className="filter-region-list" onClick={() => setActive(!active)}>
+        <div
+          className={
+            darkMode
+              ? "filter-region-list filter_light"
+              : "filter-region-list filter_dark"
+          }
+          onClick={() => setActive(!active)}
+        >
           Filter By Region
           <ul className={active ? "active" : null}>
             <li onClick={() => listSelectHandle("Africa")}>Africa</li>
@@ -40,6 +50,7 @@ function Content({
           countriesList.map((country, index) => {
             return (
               <div
+                className={darkMode ? "light_shadow" : "dark_shadow"}
                 key={index}
                 onClick={() => {
                   fetchCountryInfo(country.countryName);
@@ -50,7 +61,13 @@ function Content({
                   src={country.flagImg}
                   alt="country flag"
                 />
-                <div className="country-info">
+                <div
+                  className={
+                    darkMode
+                      ? "country-info country-light"
+                      : "country-info country-dark"
+                  }
+                >
                   <h1>{country.countryName}</h1>
                   <p>
                     <span>Population: </span>

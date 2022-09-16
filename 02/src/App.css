@@ -4,6 +4,9 @@
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
 }
-body {
+.light {
   background: hsl(0, 0%, 94%);
+}
+.dark_app {
+  background: hsl(207, 26%, 17%);
 }

@@ -10,11 +10,12 @@
   margin-top: 100px;
   display: grid;
   gap: 3rem;
-  grid-template-columns: repeat(4, minmax(200px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(20, 360px);
 }
+
 .filter-region-list {
   position: relative;
-  background: white;
   padding: 1rem;
   width: 200px;
   font-weight: 600;
@@ -34,12 +35,23 @@
   display: none;
   opacity: 0;
   list-style: none;
-  background: white;
   padding: 0.5rem 0;
   border-radius: 4px 4px 8px 8px;
   transition: all 0.1s ease-in-out;
   top: 60px;
+}
+
+.filter_light ul {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background: white;
+}
+.filter_dark {
+  box-shadow: rgba(41, 41, 41, 0.5) 0px 8px 24px;
+  color: white;
+  background: hsl(209, 23%, 22%);
+}
+.filter_dark ul {
+  background: hsl(209, 23%, 22%);
 }
 .filter-region-list li {
   padding: 0.5rem 1rem;
@@ -60,25 +72,50 @@
   padding: 0 1rem;
   font-size: 15px;
   font-weight: 600;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.search_light {
+  background: white;
+  box-shadow: rgba(109, 115, 121, 0.2) 0px 8px 24px;
+}
+.search-dark {
+  background: hsl(209, 23%, 22%);
+  color: white;
+  box-shadow: rgba(41, 41, 41, 0.5) 0px 8px 24px;
+}
+.search-dark::placeholder {
+  color: white;
 }
 .content__container-countries div {
   display: flex;
   border-radius: 4px;
   overflow: hidden;
   flex-direction: column;
+}
+.light_shadow {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.dark_shadow {
+  box-shadow: rgba(41, 41, 41, 0.5) 0px 8px 24px;
 }
 .content__container-countries div img {
   width: 100%;
-  height: 160px;
+  height: 200px;
 }
 .country-info {
   padding: 1.3rem;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 7px;
+  height: 100%;
 }
+.country-light {
+  background: white;
+}
+.country-dark {
+  background: hsl(209, 23%, 22%);
+  color: white;
+}
+
 .country-info h1 {
   font-size: 20px;
 }
