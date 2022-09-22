@@ -1,0 +1,182 @@
+* {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+.app__container {
+  box-sizing: border-box;
+  background-image: url("./images/pattern-hills.svg"),
+    url("./images/bg-stars.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  background: linear-gradient(
+    0deg,
+    rgba(37, 29, 44, 255),
+    rgba(30, 30, 42, 255)
+  );
+}
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-error {
+  color: white !important;
+}
+.options__container {
+  position: absolute;
+  right: 150px;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options__container-type {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  color: white;
+  font-weight: 500;
+  gap: 2rem;
+}
+.options__container h2 {
+  font-size: 23px;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.options__container-type h1 {
+  font-size: 19px;
+  cursor: pointer;
+}
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  color: white !important;
+}
+.css-i4bv87-MuiSvgIcon-root {
+  color: white !important;
+}
+
+.option {
+  font-size: 8em;
+  color: rgb(177, 172, 172);
+  filter: grayscale(100%);
+  transition: all 450ms ease;
+}
+
+.option:is(:hover, :focus) {
+  color: white;
+  filter: grayscale(0%) drop-shadow(0 8px 8px rgba(0, 0, 0, 0.75));
+}
+
+.active {
+  color: white !important;
+}
+/* Animations  */
+
+.flip-top {
+  z-index: 100;
+  animation: flip-top var(--refresh-flip-animation-time)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.flip-top2 {
+  z-index: 100;
+  animation: flip-top2 var(--refresh-flip-animation-time)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.text-pulse {
+  z-index: 100;
+  animation: text-pulse var(--refresh-pulse-animation-time)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.text-pulse2 {
+  z-index: 100;
+  animation: text-pulse2 var(--refresh-pulse-animation-time)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes flip-top {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+  34% {
+    color: transparent;
+    opacity: 1;
+  }
+  50% {
+    color: transparent;
+    opacity: 1;
+  }
+  70% {
+    color: transparent;
+    opacity: 0.6;
+  }
+  100% {
+    color: transparent;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+}
+@keyframes flip-top2 {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+  34% {
+    color: transparent;
+    opacity: 1;
+  }
+  50% {
+    color: transparent;
+    opacity: 1;
+  }
+  70% {
+    color: transparent;
+    opacity: 0.6;
+  }
+  100% {
+    color: transparent;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+}
+
+@keyframes text-pulse {
+  0% {
+    filter: blur(0.01);
+  }
+  50% {
+    filter: blur(12px) opacity(0);
+  }
+  100% {
+    filter: blur(0.01) opacity(1);
+  }
+}
+@keyframes text-pulse2 {
+  0% {
+    filter: blur(0.01);
+  }
+  50% {
+    filter: blur(12px) opacity(0);
+  }
+  100% {
+    filter: blur(0.01) opacity(1);
+  }
+}

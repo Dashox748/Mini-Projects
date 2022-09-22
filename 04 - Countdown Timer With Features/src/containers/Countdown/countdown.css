@@ -1,0 +1,9 @@
+.countdown__container {
+  display: flex;
+  gap: 3rem;
+  height: 190px;
+}
+
+.countdown__container div h1 {
+  font-size: 55px;
+}

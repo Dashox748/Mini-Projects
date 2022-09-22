@@ -1,0 +1,27 @@
+.countdown__container-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.countdown__container-card div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  height: 140px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  color: hsl(345, 95%, 68%);
+  background: rgba(44, 44, 68, 255);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
+}
+
+.countdown__container-card h1 {
+  color: hsl(237, 18%, 59%);
+  margin-top: 20px;
+  font-size: 20px !important;
+  letter-spacing: 4px;
+}
