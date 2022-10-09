@@ -1,46 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./product.css";
 import { images, thumbnail } from "../index.js";
 import plus from "../images/icon-plus.svg";
 import minus from "../images/icon-minus.svg";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  changeNotificationToFailed,
+  changeNotificationToSucces,
+} from "../../redux/Notification";
 
 function Product({ handleAddToCart }) {
   const [currentImage, setCurrentImage] = useState(images.imageA);
   const [activeImage, setActiveImage] = useState("a");
   const [quantityToAdd, setQuantityToAdd] = useState(0);
   const [activeError, setActiveError] = useState(false);
-  const [NotificationText, setNotificationText] = useState("Succes");
+
+  const dispatch = useDispatch();
+  const notification = useSelector((state) => state.notification);
 
   const handleAddQuant = (type) => {
     if (!type && quantityToAdd === 0) return;
     type
       ? setQuantityToAdd(quantityToAdd + 1)
       : setQuantityToAdd(quantityToAdd - 1);
+    console.log(notification);
   };
 
   const handleAddToCartLocal = (number, name, price) => {
     if (quantityToAdd === 0) {
-      // setNotificationText("Error Quant cant be 0");
-      // showError();
+      dispatch(changeNotificationToFailed());
       return;
     }
     handleAddToCart(number, name, price);
     setQuantityToAdd(0);
-    // setNotificationText("Succes Item added to cart");
+    dispatch(changeNotificationToSucces());
   };
 
-  const showNotification = () => {
+  useEffect(() => {
     setActiveError(true);
-
-    // setTimeout(() => {
-    //   setActiveError(false);
-    // }, 3000);
-  };
+    setTimeout(() => {
+      setActiveError(false);
+    }, 3000);
+  }, [notification]);
 
   return (
     <div className="product__container">
-      <div className={activeError ? "error activeError" : "error"}>
-        <span className="errorText">{NotificationText}</span>
+      <div
+        className={
+          activeError
+            ? `${notification.NotificationColor} activeError`
+            : `${notification.NotificationColor}`
+        }
+      >
+        <span className="errorText">
+          <h3>{notification.NotificationAlert}</h3>
+          <p>{notification.NotificationText}</p>
+        </span>
       </div>
       <div className="product__container-images">
         <img

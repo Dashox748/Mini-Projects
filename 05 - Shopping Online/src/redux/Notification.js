@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  notificationAlert: "Succes",
+  NotificationAlert: "Succes",
   NotificationText: "you added Item",
   NotificationColor: "green",
+  NotificationShow: false,
 };
 
 export const counterSlice = createSlice({
@@ -11,19 +12,22 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     changeNotificationToSucces: (state) => {
-      state.notificationAlert = "Succes";
+      state.NotificationAlert = "Succes";
       state.NotificationText = "You added Item";
       state.NotificationColor = "green";
+      state.NotificationShow = !state.NotificationShow;
     },
     changeNotificationToFailed: (state) => {
-      state.notificationAlert = "Error";
-      state.NotificationText = "We didnt add your item to cart";
+      state.NotificationAlert = "Error";
+      state.NotificationText = "Quant cant be 0";
       state.NotificationColor = "red";
+      state.NotificationShow = !state.NotificationShow;
     },
     changeNotificationToInfo: (state) => {
-      state.notificationAlert = "Info";
+      state.NotificationAlert = "Info";
       state.NotificationText = "Item Deleted";
       state.NotificationColor = "orange";
+      state.NotificationShow = !state.NotificationShow;
     },
   },
 });

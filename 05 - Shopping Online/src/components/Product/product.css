@@ -129,18 +129,21 @@
 
 /* Error display */
 
-.error {
+.red,
+.green,
+.orange {
   position: absolute;
-  background: red;
-  width: 250px;
+  background: transparent;
   height: 60px;
+  width: 200px;
   top: -100px;
   left: 50%;
   transform: translate(-50%, 0);
-  transition: all 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
   opacity: 0;
   border-radius: 0 0 8px 8px;
-  padding: 15 px;
+  padding: 25px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,8 +151,22 @@
 .activeError {
   opacity: 1;
 }
-.errorText {
-  font-size: 20px;
+.errorText h3 {
   font-weight: 700;
   color: white;
+}
+.errorText p {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+
+.red {
+  background: red;
+}
+.green {
+  background: green;
+}
+.orange {
+  background: orange;
 }

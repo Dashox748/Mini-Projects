@@ -6,7 +6,7 @@ import avatar from "../images/image-avatar.png";
 import thumbnail from "../images/image-product-1-thumbnail.jpg";
 import deleteIcon from "../images/icon-delete.svg";
 import { changeNotificationToInfo } from "../../redux/Notification";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function Header({ cartList, handleDeleteFromCart }) {
   const [activeCart, setActiveCart] = useState(false);
