@@ -12,4 +12,5 @@ URL Shortener is simple tool transforming any long URL into a shorter, more read
 
 
 ![](./flip.gif)
+![](./pulse.gif)
 
