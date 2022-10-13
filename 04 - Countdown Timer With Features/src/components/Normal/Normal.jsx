@@ -5,27 +5,27 @@ function Normal({ currentSeconds, currentMinutes, currentHours, currentDays }) {
     <>
       <div className="countdown__container-card">
         <div>
-          <h3>{currentDays}</h3>
+          <h4>{currentDays}</h4>
         </div>
         <h1>Days</h1>
       </div>
       <div className="countdown__container-card">
         <div>
-          <h3>{currentHours}</h3>
+          <h4>{currentHours}</h4>
         </div>
         <h1>Hours</h1>
       </div>
 
       <div className="countdown__container-card">
         <div>
-          <h3>{currentMinutes}</h3>
+          <h4>{currentMinutes}</h4>
         </div>
         <h1>Minutes</h1>
       </div>
 
       <div className="countdown__container-card">
         <div>
-          <h3>{currentSeconds}</h3>
+          <h4>{currentSeconds}</h4>
         </div>
         <h1>Seconds</h1>
       </div>

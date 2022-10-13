@@ -79,7 +79,7 @@ function App() {
       flipDelay = 800;
       pulseDelay = 650;
       flipLength = "1.5s";
-      pulseLength = " 1.3";
+      pulseLength = "1.3s";
     } else {
       flipDelay = 1300;
       pulseDelay = 1100;

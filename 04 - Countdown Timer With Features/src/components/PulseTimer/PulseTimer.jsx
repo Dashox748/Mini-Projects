@@ -6,6 +6,7 @@ function PulseTimer({
   currentMinutes,
   currentHours,
   currentDays,
+  pulseAnimationDelay,
 }) {
   const [changeSecond, setChangeSecond] = useState(false);
   const [flipSecond, setFlipSecond] = useState(0);
@@ -42,29 +43,28 @@ function PulseTimer({
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      setFlipSecond(currentSeconds);
+    }, pulseAnimationDelay);
+    return () => clearTimeout(timer);
+  }, [staticSecond]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setFlipMinute(currentMinutes);
-    }, 500);
+    }, pulseAnimationDelay);
     return () => clearTimeout(timer);
   }, [staticMinute]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFlipSecond(currentSeconds);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [staticSecond]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
       setFlipHour(currentHours);
-    }, 500);
+    }, pulseAnimationDelay);
     return () => clearTimeout(timer);
   }, [staticHour]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setFlipDay(currentDays);
-    }, 500);
+    }, pulseAnimationDelay);
     return () => clearTimeout(timer);
   }, [staticDay]);
 
