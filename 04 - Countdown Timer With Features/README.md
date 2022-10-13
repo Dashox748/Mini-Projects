@@ -1,16 +1,19 @@
-URL Shortener is simple tool transforming any long URL into a shorter, more readable link.
+Countdown Timer is simple tool to track remaining time to christmas, your birthday, anything you want, u can choose refresh time or animation that look best to you
 
-- Live Site URL: https://url-shortener-16f17.web.app/
+- Live Site URL: https://countdown-timer-b9dd4.web.app/
 
 ### Built with
 - React
 - javascript
 - CSS
-- Tailwind 
+- Animations
 - Local storage
-- API
 
 
 
-![](./pulse.gif)
+
+![](./readme/flip.gif)
+![](./readme/pulse.gif)
+![](./readme/site.png)
+
 
