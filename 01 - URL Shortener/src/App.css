@@ -9,3 +9,6 @@ body {
   overflow-x: hidden;
   width: 100vw;
 }
+.copy:active{
+    opacity:0.5
+}
