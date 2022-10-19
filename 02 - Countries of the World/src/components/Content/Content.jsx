@@ -1,6 +1,7 @@
-import React from "react";
 import "./content.css";
-import { useState } from "react";
+import React, { useRef, useState } from "react";
+import RenderIfVisible from 'react-render-if-visible'
+
 
 function Content({
   countriesList,
@@ -16,8 +17,11 @@ function Content({
   const [active, setActive] = useState(false);
 
   return !showCountryInfo ? (
-    <div className="content__container">
-      <div className="content__container-filters">
+
+          <div  className="content__container">
+
+
+      <div className="content__container-filters" >
         <input
           onChange={(e) => inputHandle(e)}
           className={
@@ -45,44 +49,51 @@ function Content({
           </ul>
         </div>
       </div>
-      <div className="content__container-countries">
+              <div className="content__container-countries"  >
         {countriesList &&
-          countriesList.map((country, index) => {
+        countriesList.map((country, index) => {
             return (
-              <div
-                className={darkMode ? "light_shadow" : "dark_shadow"}
-                key={index}
-                onClick={() => {
-                  fetchCountryInfo(country.countryName);
-                }}
-              >
-                <img
-                  className="flag_cursor"
-                  src={country.flagImg}
-                  alt="country flag"
-                />
-                <div
-                  className={
-                    darkMode
-                      ? "country-info country-light"
-                      : "country-info country-dark"
-                  }
-                >
-                  <h1>{country.countryName}</h1>
-                  <p>
-                    <span>Population: </span>
-                    {country.population}
-                  </p>
-                  <p>
-                    <span>Region: </span>
-                    {country.region}
-                  </p>
-                  <p>
-                    <span>Capital: </span>
-                    {country.capital}
-                  </p>
-                </div>
-              </div>
+
+                    <div
+                        className={darkMode ? "light_shadow" : "dark_shadow"}
+                        key={index}
+                        onClick={() => {
+                            fetchCountryInfo(country.countryName);
+                        }}
+                        >
+                        <img
+                            className="flag_cursor"
+                            src={country.flagImg}
+                            alt="country flag"
+                        />
+
+                        <div
+                            className={
+                            darkMode
+                            ? "country-info country-light"
+                            : "country-info country-dark"
+                        }
+                            >
+                            <h1>{country.countryName}</h1>
+                            <p>
+                                <span>Population: </span>
+                                {country.population}
+
+                            </p>
+
+                            <p>
+                                <span>Region: </span>
+                                {country.region}
+                            </p>
+                            <p>
+                                <span>Capital: </span>
+                                {country.capital}
+                            </p>
+
+                        </div>
+                    </div>
+
+
             );
           })}
       </div>
