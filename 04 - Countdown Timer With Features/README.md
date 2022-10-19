@@ -10,9 +10,16 @@ Countdown Timer is simple tool to track remaining time to christmas, your birthd
 - Local storage
 
 
+<<<<<<< HEAD
 ![](./readme/site.png)
 ![](./readme/flip.gif)
 ![](./readme/pulse.gif)
 
 
+=======
+
+![](./readme/site.png)
+![](./readme/flip.gif)
+![](./readme/pulse.gif)
+>>>>>>> 3aa63df0d6dc6a19ec3f82fbe734543ddfc36a60
 
