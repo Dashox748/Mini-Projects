@@ -30,6 +30,7 @@ function App() {
             region: country.region,
             population: country.population,
             flagImg: country.flags.png,
+              keyToApi:country.altSpellings[0]
           };
         });
         setCountriesList(newData);

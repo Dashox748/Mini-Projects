@@ -1,12 +1,21 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: "Nunito Sans", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+
 }
+
 .light {
-  background: hsl(0, 0%, 94%);
+    background: hsl(0, 0%, 94%);
 }
+
 .dark_app {
-  background: hsl(207, 26%, 17%);
+    background: hsl(207, 26%, 17%);
 }
+
+.app__container {
+    min-height: 100vh;
+    height: 100%;
+}
+

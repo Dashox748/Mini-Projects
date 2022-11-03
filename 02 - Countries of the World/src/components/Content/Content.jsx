@@ -49,16 +49,17 @@ function Content({
           </ul>
         </div>
       </div>
-              <div className="content__container-countries"  >
+              <div className="content__container-countries" >
         {countriesList &&
         countriesList.map((country, index) => {
             return (
 
                     <div
+
                         className={darkMode ? "light_shadow" : "dark_shadow"}
                         key={index}
                         onClick={() => {
-                            fetchCountryInfo(country.countryName);
+                            fetchCountryInfo(country.keyToApi);
                         }}
                         >
                         <img
@@ -99,62 +100,65 @@ function Content({
       </div>
     </div>
   ) : (
-    <div className="country-info__container">
-      <button onClick={() => buttonHandle()} className="back-button">
-        Back
-      </button>
-      <div className="country-info__container-whole">
-        <img src={countryInfo.flags.png} alt="" />
-        <div className="country-info__container-description">
-          <h1>{countryInfo.name}</h1>
-          <div className="country-info__container-description-flex">
-            <div className="country-info__container-description-left">
-              <p>
-                <span>Native Name: </span>
-                {countryInfo.nativeName && countryInfo.nativeName}
-              </p>
-              <p>
-                <span>Population: </span> {countryInfo.population}
-              </p>
-              <p>
-                <span>Region: </span> {countryInfo.region}
-              </p>
-              <p>
-                <span>Sub Region: </span>
-                {countryInfo.subregion}
-              </p>
-              <p>
-                <span>Capital: </span>
-                {countryInfo.capital}
-              </p>
-            </div>
-            <div className="country-info__container-description-right">
-              <p>
-                <span>Top Level Domain: </span>
-                {countryInfo.topLevelDomain}
-              </p>
-              <p>
-                <span>Currencies: </span>
-                {countryInfo.currencies.map((xd) => xd.name)}
-              </p>
-              <p>
-                <span>Languages: </span>
-                {countryInfo.languages.map((xd) => xd.name)}
-              </p>
-            </div>
-          </div>
-          <div className="border__countries">
-            <span>Border Countries:</span>
-            {countryInfo.borders &&
-              countryInfo.borders.map((country, index) => (
-                <button onClick={() => fetchCountryInfo(country)} key={index}>
-                  {country}
-                </button>
-              ))}
-          </div>
-        </div>
-      </div>
-    </div>
+          <>
+          {countryInfo===undefined?null:<div className="country-info__container" style={{color:!darkMode?"white":null}}>
+              <button onClick={() => buttonHandle()} className="back-button">
+                  Back
+              </button>
+              <div className="country-info__container-whole">
+                  <img src={countryInfo.flags.png !==undefined?countryInfo.flags.png :null} alt="" />
+                  <div className="country-info__container-description">
+                      <h1>{countryInfo.name}</h1>
+                      <div className="country-info__container-description-flex">
+                          <div className="country-info__container-description-left">
+                              <p>
+                                  <span>Native Name: </span>
+                                  {countryInfo.nativeName && countryInfo.nativeName}
+                              </p>
+                              <p>
+                                  <span>Population: </span> {countryInfo.population}
+                              </p>
+                              <p>
+                                  <span>Region: </span> {countryInfo.region}
+                              </p>
+                              <p>
+                                  <span>Sub Region: </span>
+                                  {countryInfo.subregion}
+                              </p>
+                              <p>
+                                  <span>Capital: </span>
+                                  {countryInfo.capital}
+                              </p>
+                          </div>
+                          <div className="country-info__container-description-right">
+                              <p>
+                                  <span>Top Level Domain: </span>
+                                  {countryInfo.topLevelDomain}
+                              </p>
+                              <p>
+                                  <span>Currencies: </span>
+                                  {countryInfo.currencies.map((xd) => xd.name)}
+                              </p>
+                              <p>
+                                  <span>Languages: </span>
+                                  {countryInfo.languages.map((xd) => xd.name)}
+                              </p>
+                          </div>
+                      </div>
+                      <div className="border__countries">
+                          <span>Border Countries:</span>
+                          {countryInfo.borders &&
+                          countryInfo.borders.map((country, index) => (
+                                  <button onClick={() => fetchCountryInfo(country)} key={index}>
+                                      {country}
+                                  </button>
+                                  ))}
+                      </div>
+                  </div>
+              </div>
+          </div>}
+
+          </>
   );
 }
 
