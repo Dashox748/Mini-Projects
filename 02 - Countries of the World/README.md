@@ -9,7 +9,7 @@ Where in the world is a simple site that let's you search for different countrie
 - API
 
 
-![](./readme.png)
+![](./readme-site.png)
 
 
 
