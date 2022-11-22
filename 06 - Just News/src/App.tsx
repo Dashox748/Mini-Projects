@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from "./containers/Header/Header"
 import Content from "./containers/Content/Content";
 import './App.css';
 import axios, {AxiosResponse} from "axios";
 import {useState} from "react";
+import AdvancedNewsInfo from "./components/AdvancedNewsInfo/AdvancedNewsInfo";
+
 
 function App() {
+    const [advancedInfo,setAdvancedInfo]=useState<boolean>(false)
+    const [whichInfo,setWhichInfo]=useState<number>(0)
     const [news, setNews] = useState<any>([
         {
             "author": "The Peninsula Newsper",
@@ -40,6 +44,14 @@ function App() {
 
     const fetchData = async (keyword:string,category:string) => {
         axios.get<Array<fetchNews>>(`https://newsapi.org/v2/top-headlines?q=${keyword}&category=${category}${category!==""?"&language=en":""}&sortBy=popularity&apiKey=92cffcd19d2d4ed9968f4758d793bf6f`).then((res: AxiosResponse) => setNews(res.data.articles))
+        setAdvancedInfo(false);
+    }
+    useEffect(()=>{
+//        fetchData("","general")
+        },[])
+    const changeToadvancedInfo =(index:number)=>{
+        setWhichInfo(index)
+        setAdvancedInfo(true);
     }
 
 
@@ -48,7 +60,8 @@ function App() {
         <div className="App">
             <button onClick={() => fetchData("","general")}>siema</button>
             <Header fetchData={fetchData}/>
-            <Content news={news}/>
+            {advancedInfo?<AdvancedNewsInfo news={news[whichInfo]}/>:<Content news={news} changeToadvancedInfo={changeToadvancedInfo}/>}
+
 
         </div>
     );

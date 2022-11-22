@@ -3,18 +3,18 @@ import "./content.css"
 
 interface Props {
     news: any;
+    changeToadvancedInfo:any;
 }
 
-function Content({news}: Props) {
+function Content({news,changeToadvancedInfo}: Props) {
 
 
-    console.log(news)
+    
     return (
         <div className="content__container">
-
             <div className="content__container-news">
                 {news.map((data: any, index: number) => (
-                    <div className={`news__container ${index === 0 ? "heading" : ""}${index === 1 ? "heading2" : ""}`} key={index}>
+                        <div className={`news__container ${index === 0 ? "heading" : ""}${index === 1 ? "heading2" : ""}`} key={index} onClick={()=>{changeToadvancedInfo(index)}}>
                         <div className="news-thumbnail">
                             <img
                                 src={data.urlToImage===null?noImage:data.urlToImage}/>

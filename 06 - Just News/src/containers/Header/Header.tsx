@@ -1,22 +1,24 @@
 import {useState} from "react";
 import "./header.css"
+
 interface Props {
     fetchData: any;
 }
-function Header({fetchData}:Props) {
+
+function Header({fetchData}: Props) {
 
 
     const [hamburgerToggle, setHamburgerToggle] = useState<boolean>(false)
-    const [openSearch, setOpen] = useState(false)
+    const [openSearch, setOpenSearch] = useState(false)
     const [input, setInput] = useState<string>("")
     const handleSubmit = (e: any) => {
         e.preventDefault()
         if (input?.length !== 0 && openSearch) {
-            fetchData(input,"")
+            fetchData(input, "")
             setInput("")
             return
         }
-        setOpen(!openSearch)
+        setOpenSearch(!openSearch)
 
     }
     return (
@@ -47,17 +49,33 @@ function Header({fetchData}:Props) {
                         ></rect>
                     </svg>
                 </button>
-                <ul className={`list-category ${hamburgerToggle?"openHamburger":"closeHamburger"}`}>
-                    <li onClick={()=>fetchData("","general")}>General</li>
-                    <li onClick={()=>fetchData("","business")}>Business</li>
-                    <li onClick={()=>fetchData("","sports")}>Sports</li>
-                    <li onClick={()=>fetchData("","technology")}>Technology</li>
+                <ul className={`list-category ${hamburgerToggle ? "openHamburger" : "closeHamburger"}`}>
+                    <li onClick={() => {
+                        fetchData("", "general")
+                        setHamburgerToggle(false)
+                    }}>General
+                    </li>
+                    <li onClick={() => {
+                        fetchData("", "business")
+                        setHamburgerToggle(false)
+                    }}>Business
+                    </li>
+                    <li onClick={() => {
+                        fetchData("", "sports")
+                        setHamburgerToggle(false)
+                    }}>Sports
+                    </li>
+                    <li onClick={() => {
+                        fetchData("", "technology")
+                        setHamburgerToggle(false)
+                    }}>Technology
+                    </li>   
                 </ul>
             </div>
 
             <div className="header__container-logo">
                 <div className="logo">JS</div>
-                <span>Just News</span>
+                <span onClick={() => window.location.reload()}>Just News</span>
             </div>
 
             <form className={`search-form ${openSearch ? "openSearch" : "closed"}`} onSubmit={handleSubmit}>

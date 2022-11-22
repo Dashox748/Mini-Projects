@@ -1,6 +1,5 @@
 .content__container {
     padding: 0 clamp(30px, 11vw, 180px);
-
 }
 
 .content__container-news {
@@ -93,7 +92,7 @@
 
 .dot {
     height: 4px;
-    width: 4px;
+    width: 4px ;
     border-radius: 2px;
     background: rgba(255, 255, 255, 40%);
 }
