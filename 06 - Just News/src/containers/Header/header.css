@@ -38,17 +38,17 @@
     translate 0.3s ease-in,width 0.4s ease-in;
     display: flex;
     gap: 1rem;
-    text-decoration: none;
     list-style: none;
+}
+
+.list-category a{
+    transition: all 0.4s ease-in;
+    cursor: pointer;
+    text-decoration: none;
     color: rgba(255, 255, 255, 0.6)
 }
 
-.list-category li {
-    transition: all 0.4s ease-in;
-    cursor: pointer;
-}
-
-.list-category li:hover {
+.list-category a:hover {
     color: white;
 
 }
@@ -127,6 +127,7 @@
     background: transparent;
     width: 100%;
     color: white;
+    outline: none;
 }
 
 .search-input input::placeholder {
@@ -188,4 +189,5 @@
 .hamburger-menu-svg .middle {
     opacity: 0;
 }
+
 
